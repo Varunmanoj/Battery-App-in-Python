@@ -1,1 +1,0 @@
-TitleText.configure(color="white", bg="black")
