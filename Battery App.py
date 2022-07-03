@@ -71,6 +71,11 @@ menubar.add_cascade(label="View", menu=ViewMenu)
 ViewMenu.add_command(label="Light Mode", command=LightMode)
 ViewMenu.add_command(label="Dark Mode", command=DarkMode)
 
+SpeakMenu = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Speak", menu=SpeakMenu)
+SpeakMenu .add_command(label="Speak Battery Level", command=speak)
+
+
 TitleText = tk.Message(text="Battery % Viewer",
                        font="Arial 30 bold", justify="center", aspect="500")
 TitleText .pack(side="top", fill="x")
