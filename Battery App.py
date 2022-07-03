@@ -1,6 +1,8 @@
 import tkinter as tk
+from tkinter import messagebox
 import psutil as ps
 from win32com.client import Dispatch
+import webbrowser
 
 
 def fetchbatterypercent():
@@ -41,6 +43,20 @@ def DarkMode():
     SayBTN["fg"] = "white"
 
 
+def OnlineHelp():
+    webbrowser.open(
+        "https://sites.google.com/xaviers.edu.in/battery-viewer/home")
+
+
+def About():
+    messagebox.showinfo("About", "Battery % Viewer \n Version 2")
+
+
+def Androidapp():
+    webbrowser.open(
+        "https://play.google.com/store/apps/details?id=com.varunmanojkumar.batterylevel")
+
+
 percent = fetchbatterypercent()
 
 
@@ -48,7 +64,7 @@ percent = fetchbatterypercent()
 # Define the Window
 window = tk.Tk()
 # Set Title of the Window
-window.title("Battery App")
+window.title("Battery % Viewer")
 # Set Size of the Window
 window.geometry("500x400")
 window.minsize(450, 100)
@@ -75,6 +91,13 @@ SpeakMenu = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
 SpeakMenu .add_command(label="Speak Battery Level", command=speak)
 
+HelpMenu = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Help", menu=HelpMenu)
+HelpMenu .add_command(label="Online Help", command=OnlineHelp)
+HelpMenu.add_separator()
+HelpMenu .add_command(label="About", command=About)
+HelpMenu.add_separator()
+HelpMenu .add_command(label="Android App", command=Androidapp)
 
 TitleText = tk.Message(text="Battery % Viewer",
                        font="Arial 30 bold", justify="center", aspect="500")
@@ -82,7 +105,7 @@ TitleText .pack(side="top", fill="x")
 
 
 BatteryLevelText = tk.Message(
-    text="Battery Level " + str(percent) + " %", font="Arial 20 bold", aspect="500", justify="center")
+    text="Battery Level " + str(percent) + " %", font="Arial 20 bold", aspect="250", justify="center")
 BatteryLevelText.pack(fill="x",)
 
 # Added a Say button
