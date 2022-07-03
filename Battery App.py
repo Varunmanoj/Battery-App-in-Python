@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import psutil as ps
 from win32com.client import Dispatch
+import pyttsx3
 import webbrowser
 
 
@@ -12,9 +13,32 @@ def fetchbatterypercent():
     return percent
 
 
+def FetchBatteryChargingStatus():
+    Battery = ps.sensors_battery()
+    plugedinbool = Battery.power_plugged
+
+    if plugedinbool:
+        chargeStatusText = "Device Charging"
+    else:
+        chargeStatusText = "Device Not Charging"
+    return chargeStatusText
+
+
+ChargingStatusText = FetchBatteryChargingStatus()
+engine = pyttsx3.init()
+
+
 def speak():
-    speak = Dispatch("SAPI.SpVoice")
-    speak.Speak("Battery Level"+str(percent)+"%")
+    # speak = Dispatch("SAPI.SpVoice")
+    # speak.Speak("Battery Level"+str(percent)+"%")
+
+    engine.say("battery Level"+str(percent)+"%")
+    engine.runAndWait()
+
+
+def speakChargingStatus():
+    engine.say(ChargingStatusText)
+    engine.runAndWait()
 
 
 def LightMode():
@@ -49,12 +73,16 @@ def OnlineHelp():
 
 
 def About():
-    messagebox.showinfo("About", "Battery % Viewer \n Version 2")
+    messagebox.showinfo("About", "Battery % Viewer \n Version 3")
 
 
 def Androidapp():
     webbrowser.open(
         "https://play.google.com/store/apps/details?id=com.varunmanojkumar.batterylevel")
+
+
+def refresh():
+    window.update()
 
 
 percent = fetchbatterypercent()
@@ -79,6 +107,7 @@ window.config(menu=menubar)
 # Menu Items
 filemenu = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="File", menu=filemenu)
+filemenu.add_command(label="Refresh", command=refresh)
 filemenu.add_command(label="Exit", command=window.quit)
 
 # Menu Items
@@ -87,6 +116,7 @@ menubar.add_cascade(label="View", menu=ViewMenu)
 ViewMenu.add_command(label="Light Mode", command=LightMode)
 ViewMenu.add_command(label="Dark Mode", command=DarkMode)
 
+# Speak Menu
 SpeakMenu = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
 SpeakMenu .add_command(label="Speak Battery Level", command=speak)
