@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import psutil as ps
-from win32com.client import Dispatch
+# from win32com.client import Dispatch
 import pyttsx3
 import webbrowser
 
@@ -80,9 +80,19 @@ def Androidapp():
     webbrowser.open(
         "https://play.google.com/store/apps/details?id=com.varunmanojkumar.batterylevel")
 
+# Change font size
 
-def refresh():
-    window.update()
+
+def smallsize():
+    BatteryLevelText.config(font="Arial 30 bold ")
+
+
+def DefaultSize():
+    BatteryLevelText.config(font="Arial 40 bold ")
+
+
+def LargeSize():
+    BatteryLevelText.config(font="Arial 50 bold ")
 
 
 percent = fetchbatterypercent()
@@ -105,23 +115,37 @@ menubar = tk.Menu(window)
 window.config(menu=menubar)
 
 # Menu Items
-filemenu = tk.Menu(menubar, tearoff=0)
+filemenu = tk.Menu(menubar, tearoff=0,
+                   activebackground="green", activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="File", menu=filemenu)
-filemenu.add_command(label="Refresh", command=refresh)
 filemenu.add_command(label="Exit", command=window.quit)
 
 # Menu Items
-ViewMenu = tk.Menu(menubar, tearoff=0)
+ViewMenu = tk.Menu(menubar, tearoff=0,
+                   activebackground="green", activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="View", menu=ViewMenu)
 ViewMenu.add_command(label="Light Mode", command=LightMode)
 ViewMenu.add_command(label="Dark Mode", command=DarkMode)
 
+
+# Create Submenu
+submenu = tk.Menu(ViewMenu, tearoff=0, activebackground="green",
+                  activeforeground="black", font="Arial 10 bold")
+submenu.add_command(label="Small Font", command=smallsize)
+submenu.add_command(label="Default Font", command=DefaultSize)
+submenu.add_command(label="Large Font", command=LargeSize)
+ViewMenu.add_cascade(label="Change Font Size", menu=submenu)
+
+
 # Speak Menu
-SpeakMenu = tk.Menu(menubar, tearoff=0)
+SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
+                    activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
 SpeakMenu .add_command(label="Speak Battery Level", command=speak)
 
-HelpMenu = tk.Menu(menubar, tearoff=0)
+# Help Menu
+HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
+                   activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Help", menu=HelpMenu)
 HelpMenu .add_command(label="Online Help", command=OnlineHelp)
 HelpMenu.add_separator()
