@@ -121,8 +121,8 @@ menubar.add_cascade(label="File", menu=filemenu)
 filemenu.add_command(label="Exit", command=window.quit)
 
 # Menu Items
-ViewMenu = tk.Menu(menubar, tearoff=0,
-                   activebackground="green", activeforeground="black", font="Arial 10 bold")
+ViewMenu = tk.Menu(menubar, tearoff=0, activebackground="green", activeforeground="black", font="Arial 10 bold",
+                   )
 menubar.add_cascade(label="View", menu=ViewMenu)
 ViewMenu.add_command(label="Light Mode", command=LightMode)
 ViewMenu.add_command(label="Dark Mode", command=DarkMode)
@@ -164,7 +164,7 @@ BatteryLevelText.pack(fill="x",)
 
 # Added a Say button
 SayBTN = tk.Button(text="Say", command=speak,
-                   font="Arial 20 bold")
+                   font="Arial 20 bold", activebackground="green")
 SayBTN.pack(fill="x")
 
 
