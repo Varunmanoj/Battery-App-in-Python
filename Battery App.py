@@ -135,12 +135,12 @@ TitleText .pack(side="top", fill="x")
 
 
 BatteryLevelText = tk.Message(
-    text="Battery Level " + str(percent) + " %", font="Arial 20 bold", aspect="250", justify="center")
+    text="Battery Level " + str(percent) + " %", font="Arial 40 bold", aspect="250", justify="center")
 BatteryLevelText.pack(fill="x",)
 
 # Added a Say button
 SayBTN = tk.Button(text="Say", command=speak,
-                   font="Arial 30 bold")
+                   font="Arial 20 bold")
 SayBTN.pack(fill="x")
 
 
