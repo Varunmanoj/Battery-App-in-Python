@@ -69,7 +69,7 @@ def DarkMode():
 
 def OnlineHelp():
     webbrowser.open(
-        "https://sites.google.com/xaviers.edu.in/battery-viewer/home")
+        "https://sites.google.com/view/batteryviewer-low-vision/home")
 
 
 def About():
