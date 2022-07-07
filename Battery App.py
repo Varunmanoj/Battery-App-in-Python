@@ -28,7 +28,7 @@ ChargingStatusText = FetchBatteryChargingStatus()
 engine = pyttsx3.init()
 
 
-def speak():
+def speak(event):
     # speak = Dispatch("SAPI.SpVoice")
     # speak.Speak("Battery Level"+str(percent)+"%")
 
@@ -164,8 +164,14 @@ BatteryLevelText.pack(fill="x",)
 
 # Added a Say button
 SayBTN = tk.Button(text="Say", command=speak,
-                    font="Arial 20 bold", activebackground="green", bg="#A0D995", bd="5",)
+                   font="Arial 20 bold", activebackground="green", bg="#A0D995", bd="5",)
 SayBTN.pack(fill="x")
 
+# Key bind
+SayBTN.focus()
+SayBTN.bind("<Return>", speak)
+SayBTN.bind("<Control-s>", speak)
+SayBTN.bind("<Button-1>", speak)
+SayBTN.bind("<space>", speak)
 
 window.mainloop()
