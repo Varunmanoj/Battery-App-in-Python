@@ -164,7 +164,7 @@ BatteryLevelText.pack(fill="x",)
 
 # Added a Say button
 SayBTN = tk.Button(text="Say", command=speak,
-                   font="Arial 20 bold", activebackground="green")
+                    font="Arial 20 bold", activebackground="green", bg="#A0D995", bd="5",)
 SayBTN.pack(fill="x")
 
 
