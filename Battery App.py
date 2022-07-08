@@ -28,6 +28,11 @@ ChargingStatusText = FetchBatteryChargingStatus()
 engine = pyttsx3.init()
 
 
+def speakMenuitem():
+    engine.say("battery Level"+str(percent)+"%")
+    engine.runAndWait()
+
+
 def speak(event):
     # speak = Dispatch("SAPI.SpVoice")
     # speak.Speak("Battery Level"+str(percent)+"%")
@@ -50,7 +55,7 @@ def LightMode():
     BatteryLevelText["bg"] = "#f0f0f0"
     BatteryLevelText["fg"] = "black"
 
-    SayBTN["bg"] = "#f0f0f0"
+    SayBTN["bg"] = "#A0D995"
     SayBTN["fg"] = "black"
 
 
@@ -63,7 +68,7 @@ def DarkMode():
     BatteryLevelText["bg"] = "black"
     BatteryLevelText["fg"] = "white"
 
-    SayBTN["bg"] = "black"
+    SayBTN["bg"] = "#377D71"
     SayBTN["fg"] = "white"
 
 
@@ -73,7 +78,7 @@ def OnlineHelp():
 
 
 def About():
-    messagebox.showinfo("About", "Battery % Viewer \n Version 3")
+    messagebox.showinfo("About", "Battery % Viewer \n Version 5")
 
 
 def Androidapp():
@@ -141,7 +146,7 @@ ViewMenu.add_cascade(label="Change Font Size", menu=submenu)
 SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
                     activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
-SpeakMenu .add_command(label="Speak Battery Level", command=speak)
+SpeakMenu .add_command(label="Speak Battery Level", command=speakMenuitem)
 
 # Help Menu
 HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
@@ -169,9 +174,11 @@ SayBTN.pack(fill="x")
 
 # Key bind
 SayBTN.focus()
-SayBTN.bind("<Return>", speak)
-SayBTN.bind("<Control-s>", speak)
-SayBTN.bind("<Button-1>", speak)
-SayBTN.bind("<space>", speak)
+for b in [SayBTN]:
+    b.unbind_class("Button", "<Key-space>")
+    b.bind("<Return>", speak)
+    b.bind("<Control-s>", speak)
+    b.bind("<Button-1>", speak)
+    b.bind("<space>", speak)
 
 window.mainloop()
