@@ -4,6 +4,9 @@ import psutil as ps
 # from win32com.client import Dispatch
 import pyttsx3
 import webbrowser
+import platform
+import os
+
 
 
 def fetchbatterypercent():
