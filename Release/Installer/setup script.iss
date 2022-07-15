@@ -2,15 +2,26 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Battery Viewer"
+<<<<<<< HEAD
 #define MyAppVersion "5"
 #define MyAppPublisher "Varun Manoj Kumar"
 #define MyAppURL "https://sites.google.com/view/batteryviewer-low-vision/home"
 #define MyAppExeName "Battery App.exe"
+=======
+#define MyAppVersion "1.5"
+#define MyAppPublisher "Varun Manoj Kumar"
+#define MyAppURL "https://sites.google.com/view/batteryviewer-low-vision/home"
+#define MyAppExeName "Battery App V5.exe"
+>>>>>>> c36009ebde3bf6e9e2d42c7d75e035bc997081cc
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
+<<<<<<< HEAD
 AppId={{D3E44DF7-ADA2-482F-93AC-A9FFB800D0B0}
+=======
+AppId={{D5928278-DE97-421D-BA04-CC851C8953AD}
+>>>>>>> c36009ebde3bf6e9e2d42c7d75e035bc997081cc
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -19,6 +30,7 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
+<<<<<<< HEAD
 DisableDirPage=yes
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
@@ -27,6 +39,15 @@ AllowNoIcons=yes
 OutputDir=C:\Users\varun\OneDrive\Desktop
 OutputBaseFilename=Battery Viewer Setup
 SetupIconFile=C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\Release\Battery App\App Icon.ico
+=======
+DisableProgramGroupPage=yes
+; Uncomment the following line to run in non administrative install mode (install for current user only.)
+;PrivilegesRequired=lowest
+PrivilegesRequiredOverridesAllowed=dialog
+OutputDir=C:\Users\varun\Downloads
+OutputBaseFilename=Battery % Viewer Setup
+SetupIconFile=C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\Release\App Icon.ico
+>>>>>>> c36009ebde3bf6e9e2d42c7d75e035bc997081cc
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -38,6 +59,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+<<<<<<< HEAD
 Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\Release\Battery App\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\Release\Battery App\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
@@ -46,6 +68,14 @@ Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App i
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
+=======
+Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\Release\App Icon.ico"; DestDir: "{app}"; Flags: ignoreversion
+; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+[Icons]
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+>>>>>>> c36009ebde3bf6e9e2d42c7d75e035bc997081cc
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
