@@ -6,7 +6,51 @@ import pyttsx3
 import webbrowser
 import platform
 import os
+import time
 
+# GUI Design
+# Define the Window
+window = tk.Tk()
+
+# install extra voices on Windows
+
+
+def restartsystem():
+    os.system("shutdown /r ")
+
+
+def findos():
+    OSName = platform.system()
+    return OSName
+
+
+def InstallCatherinVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Catherin.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Catherin Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallRaviVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Ravi.reg")
+            time.sleep(3)
+            messagebox.askyesno(
+                "Install Complete", "Ravi Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+
+        except:
+            print("Program not Installed")
 
 
 def fetchbatterypercent():
@@ -81,7 +125,7 @@ def OnlineHelp():
 
 
 def About():
-    messagebox.showinfo("About", "Battery % Viewer \n Version 5")
+    messagebox.showinfo("About", "Battery % Viewer \n Version 6")
 
 
 def Androidapp():
@@ -106,9 +150,6 @@ def LargeSize():
 percent = fetchbatterypercent()
 
 
-# GUI Design
-# Define the Window
-window = tk.Tk()
 # Set Title of the Window
 window.title("Battery % Viewer")
 # Set Size of the Window
@@ -150,7 +191,26 @@ SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
                     activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
 SpeakMenu .add_command(label="Speak Battery Level", command=speakMenuitem)
+SpeakMenu.add_separator()
 
+# Install VoicesMenu
+VoicesMenu = tk.Menu(SpeakMenu, tearoff=0, activebackground="green",
+                     activeforeground="black", font="Arial 10 bold")
+VoicesMenu .add_command(label="Catherin", command=InstallCatherinVoice)
+VoicesMenu .add_command(label="George", command=InstallGeorgeVoice)
+VoicesMenu .add_command(label="Hazel", command=InstallHazelVoice)
+VoicesMenu .add_command(label="Hemant", command=InstallHemantVoice)
+VoicesMenu .add_command(label="James", command=InstallJamesVoice)
+VoicesMenu .add_command(label="Kalpana", command=InstallKalpanaVoice)
+VoicesMenu .add_command(label="Linda", command=InstallLindaVoice)
+VoicesMenu .add_command(label="Mark", command=InstallMarkVoice)
+VoicesMenu .add_command(label="Ravi", command=InstallRaviVoice)
+VoicesMenu .add_command(label="Ritchard", command=InstallRitchardVoice)
+VoicesMenu .add_command(label="Sean", command=InstallSeanVoice)
+VoicesMenu .add_command(label="Susan", command=InstallSusanVoice)
+
+
+SpeakMenu.add_cascade(label="Install More Voices", menu=VoicesMenu)
 # Help Menu
 HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
                    activeforeground="black", font="Arial 10 bold")
