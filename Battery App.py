@@ -38,6 +38,122 @@ def InstallCatherinVoice():
                 pass
         except:
             print("Program not Installed")
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
+
+
+def InstallGeorgeVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\George.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "George Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallHazelVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Hazel.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Hazel Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallHemantVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Hemant.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Hemant Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallJamesVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\James.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "James Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallKalpanaVoice():
+
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Kalpana.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Kalpana Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallLindaVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Linda.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Linda Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallMarkVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Mark.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Mark Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
 
 
 def InstallRaviVoice():
@@ -49,6 +165,54 @@ def InstallRaviVoice():
             messagebox.askyesno(
                 "Install Complete", "Ravi Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
 
+        except:
+            print("Program not Installed")
+
+
+def InstallRitchardVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Ritchard.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Ritchard Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallSeanVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Sean.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Sean Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
+        except:
+            print("Program not Installed")
+
+
+def InstallSusanVoice():
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            os.startfile("voices\One Core Voices\Susan.reg")
+            time.sleep(3)
+            response = messagebox.askyesno(
+                "Install Complete", "Susan Voice was installed Successfully\nThe Program has made configoration changes that require you to restart your computer Do You whish to restart now?")
+            if response == 1:
+                restartsystem()
+            else:
+                pass
         except:
             print("Program not Installed")
 
