@@ -232,19 +232,28 @@ def FetchBatteryChargingStatus():
     Battery = ps.sensors_battery()
     plugedinbool = Battery.power_plugged
 
+    global chargeStatusText
     if plugedinbool:
         chargeStatusText = "Device Charging"
     else:
         chargeStatusText = "Device Not Charging"
-    return chargeStatusText
+
+        
+    # Run the function again and again
+    window.after(1000, FetchBatteryChargingStatus)
 
 
-ChargingStatusText = FetchBatteryChargingStatus()
+FetchBatteryChargingStatus()
 engine = pyttsx3.init()
 
 
 def speakMenuitem():
     engine.say("battery Level"+str(percent)+"%")
+    engine.runAndWait()
+
+
+def speakChargingStatusMenu():
+    engine.say(chargeStatusText)
     engine.runAndWait()
 
 
@@ -356,6 +365,8 @@ SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
                     activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
 SpeakMenu .add_command(label="Speak Battery Level", command=speakMenuitem)
+SpeakMenu.add_command(label="Speak Charging Indication",
+                      command=speakChargingStatusMenu)
 SpeakMenu.add_separator()
 
 # Install VoicesMenu
@@ -393,7 +404,7 @@ TitleText .pack(side="top", fill="x")
 
 BatteryLevelText = tk.Message(
     font="Arial 40 bold", aspect="250", justify="center")
-BatteryLevelText.pack(fill="x",)
+BatteryLevelText.pack(fill="x")
 
 fetchbatterypercent()
 
@@ -411,4 +422,8 @@ for b in [SayBTN]:
     b.bind("<Button-1>", speak)
     b.bind("<space>", speak)
 
+ChargingStatusText = tk.Message(
+    font="Arial 40 bold", aspect="250", justify="center")
+
+FetchBatteryChargingStatus()
 window.mainloop()
