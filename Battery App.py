@@ -225,7 +225,7 @@ def fetchbatterypercent():
 
     global BatteryLevelText
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
-    window.after(1000, fetchbatterypercent)
+    window.after(5000, fetchbatterypercent)
 
 
 def FetchBatteryChargingStatus():
