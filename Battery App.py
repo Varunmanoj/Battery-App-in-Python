@@ -218,6 +218,8 @@ def InstallSusanVoice():
 
 
 def fetchbatterypercent():
+    global percent
+    global Battery
     Battery = ps.sensors_battery()
     percent = Battery.percent
 
