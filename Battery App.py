@@ -238,7 +238,6 @@ def FetchBatteryChargingStatus():
     else:
         chargeStatusText = "Device Not Charging"
 
-        
     # Run the function again and again
     window.after(1000, FetchBatteryChargingStatus)
 
@@ -270,7 +269,7 @@ def speakChargingStatus():
     engine.runAndWait()
 
 
-def LightMode():
+def LightMode(event):
     window.configure(bg="#f0f0f0")
 
     TitleText["bg"] = "#f0f0f0"
@@ -283,7 +282,33 @@ def LightMode():
     SayBTN["fg"] = "black"
 
 
-def DarkMode():
+def LightModeMenu():
+    window.configure(bg="#f0f0f0")
+
+    TitleText["bg"] = "#f0f0f0"
+    TitleText["fg"] = "black"
+
+    BatteryLevelText["bg"] = "#f0f0f0"
+    BatteryLevelText["fg"] = "black"
+
+    SayBTN["bg"] = "#A0D995"
+    SayBTN["fg"] = "black"
+
+
+def DarkMode(event):
+    window.configure(bg="black")
+
+    TitleText["bg"] = "black"
+    TitleText["fg"] = "white"
+
+    BatteryLevelText["bg"] = "black"
+    BatteryLevelText["fg"] = "white"
+
+    SayBTN["bg"] = "#377D71"
+    SayBTN["fg"] = "white"
+
+
+def DarkModeMenu():
     window.configure(bg="black")
 
     TitleText["bg"] = "black"
@@ -339,20 +364,22 @@ window.config(menu=menubar)
 
 # Menu Items
 filemenu = tk.Menu(menubar, tearoff=0,
-                   activebackground="green", activeforeground="black", font="Arial 10 bold")
+                   activebackground="#A0D995", activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="File", menu=filemenu)
-filemenu.add_command(label="Exit", command=window.quit)
+filemenu.add_command(label="Exit", command=window.quit, accelerator='ALT+F4')
 
 # Menu Items
-ViewMenu = tk.Menu(menubar, tearoff=0, activebackground="green", activeforeground="black", font="Arial 10 bold",
+ViewMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995", activeforeground="black", font="Arial 10 bold",
                    )
 menubar.add_cascade(label="View", menu=ViewMenu)
-ViewMenu.add_command(label="Light Mode", command=LightMode)
-ViewMenu.add_command(label="Dark Mode", command=DarkMode)
+ViewMenu.add_command(label="Light Mode",
+                     command=LightModeMenu, accelerator="CTRL+L")
+ViewMenu.add_command(
+    label="Dark Mode", command=DarkModeMenu, accelerator="CTRL+D")
 
 
 # Create Submenu
-submenu = tk.Menu(ViewMenu, tearoff=0, activebackground="green",
+submenu = tk.Menu(ViewMenu, tearoff=0, activebackground="#A0D995",
                   activeforeground="black", font="Arial 10 bold")
 submenu.add_command(label="Small Font", command=smallsize)
 submenu.add_command(label="Default Font", command=DefaultSize)
@@ -361,16 +388,17 @@ ViewMenu.add_cascade(label="Change Font Size", menu=submenu)
 
 
 # Speak Menu
-SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
+SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
                     activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
-SpeakMenu .add_command(label="Speak Battery Level", command=speakMenuitem)
+SpeakMenu .add_command(label="Speak Battery Level",
+                       command=speakMenuitem, accelerator="CTRL+S")
 SpeakMenu.add_command(label="Speak Charging Indication",
                       command=speakChargingStatusMenu)
 SpeakMenu.add_separator()
 
 # Install VoicesMenu
-VoicesMenu = tk.Menu(SpeakMenu, tearoff=0, activebackground="green",
+VoicesMenu = tk.Menu(SpeakMenu, tearoff=0, activebackground="#A0D995",
                      activeforeground="black", font="Arial 10 bold")
 VoicesMenu .add_command(label="Catherin", command=InstallCatherinVoice)
 VoicesMenu .add_command(label="George", command=InstallGeorgeVoice)
@@ -388,7 +416,7 @@ VoicesMenu .add_command(label="Susan", command=InstallSusanVoice)
 
 SpeakMenu.add_cascade(label="Install More Voices", menu=VoicesMenu)
 # Help Menu
-HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="green",
+HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
                    activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Help", menu=HelpMenu)
 HelpMenu .add_command(label="Online Help", command=OnlineHelp)
@@ -422,8 +450,8 @@ for b in [SayBTN]:
     b.bind("<Button-1>", speak)
     b.bind("<space>", speak)
 
-ChargingStatusText = tk.Message(
-    font="Arial 40 bold", aspect="250", justify="center")
 
 FetchBatteryChargingStatus()
+window.bind("<Control-l>", LightMode)
+window.bind("<Control-d>", DarkMode)
 window.mainloop()
