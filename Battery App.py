@@ -221,7 +221,9 @@ def fetchbatterypercent():
     Battery = ps.sensors_battery()
     percent = Battery.percent
 
-    return percent
+    global BatteryLevelText
+    BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
+    window.after(1000, fetchbatterypercent)
 
 
 def FetchBatteryChargingStatus():
@@ -311,9 +313,6 @@ def LargeSize():
     BatteryLevelText.config(font="Arial 50 bold ")
 
 
-percent = fetchbatterypercent()
-
-
 # Set Title of the Window
 window.title("Battery % Viewer")
 # Set Size of the Window
@@ -391,8 +390,10 @@ TitleText .pack(side="top", fill="x")
 
 
 BatteryLevelText = tk.Message(
-    text="Battery Level " + str(percent) + " %", font="Arial 40 bold", aspect="250", justify="center")
+    font="Arial 40 bold", aspect="250", justify="center")
 BatteryLevelText.pack(fill="x",)
+
+fetchbatterypercent()
 
 # Added a Say button
 SayBTN = tk.Button(text="Say", command=speak,
