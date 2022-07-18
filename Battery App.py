@@ -11,7 +11,7 @@ import time
 # GUI Design
 # Define the Window
 window = tk.Tk()
-
+engine = pyttsx3.init()
 # install extra voices on Windows
 
 
@@ -225,7 +225,19 @@ def fetchbatterypercent():
 
     global BatteryLevelText
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
-    window.after(5000, fetchbatterypercent)
+    window.after(60000, fetchbatterypercent)
+
+
+def updatebatterylevel(event):
+    BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
+    engine.say("Screen Refreshed")
+    engine.runAndWait()
+
+
+def updatebatterylevelMenu():
+    BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
+    engine.say("Screen Refreshed")
+    engine.runAndWait()
 
 
 def FetchBatteryChargingStatus():
@@ -243,16 +255,10 @@ def FetchBatteryChargingStatus():
 
 
 FetchBatteryChargingStatus()
-engine = pyttsx3.init()
 
 
 def speakMenuitem():
     engine.say("battery Level"+str(percent)+"%")
-    engine.runAndWait()
-
-
-def speakChargingStatusMenu():
-    engine.say(chargeStatusText)
     engine.runAndWait()
 
 
@@ -264,8 +270,13 @@ def speak(event):
     engine.runAndWait()
 
 
-def speakChargingStatus():
-    engine.say(ChargingStatusText)
+def speakChargingStatus(event):
+    engine.say(chargeStatusText)
+    engine.runAndWait()
+
+
+def speakChargingStatusMenu():
+    engine.say(chargeStatusText)
     engine.runAndWait()
 
 
@@ -321,7 +332,12 @@ def DarkModeMenu():
     SayBTN["fg"] = "white"
 
 
-def OnlineHelp():
+def OnlineHelpMenu():
+    webbrowser.open(
+        "https://sites.google.com/view/batteryviewer-low-vision/home")
+
+
+def OnlineHelp(event):
     webbrowser.open(
         "https://sites.google.com/view/batteryviewer-low-vision/home")
 
@@ -366,6 +382,8 @@ window.config(menu=menubar)
 filemenu = tk.Menu(menubar, tearoff=0,
                    activebackground="#A0D995", activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="File", menu=filemenu)
+filemenu.add_command(
+    label="Refresh", command=updatebatterylevelMenu, accelerator="CTRL+R")
 filemenu.add_command(label="Exit", command=window.quit, accelerator='ALT+F4')
 
 # Menu Items
@@ -391,10 +409,10 @@ ViewMenu.add_cascade(label="Change Font Size", menu=submenu)
 SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
                     activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
-SpeakMenu .add_command(label="Speak Battery Level",
+SpeakMenu .add_command(label="Battery Level",
                        command=speakMenuitem, accelerator="CTRL+S")
-SpeakMenu.add_command(label="Speak Charging Indication",
-                      command=speakChargingStatusMenu)
+SpeakMenu.add_command(label="Charging Indication",
+                      command=speakChargingStatusMenu, accelerator="CTRL+C")
 SpeakMenu.add_separator()
 
 # Install VoicesMenu
@@ -419,7 +437,8 @@ SpeakMenu.add_cascade(label="Install More Voices", menu=VoicesMenu)
 HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
                    activeforeground="black", font="Arial 10 bold")
 menubar.add_cascade(label="Help", menu=HelpMenu)
-HelpMenu .add_command(label="Online Help", command=OnlineHelp)
+HelpMenu .add_command(label="Online Help",
+                      command=OnlineHelpMenu, accelerator="F1")
 HelpMenu.add_separator()
 HelpMenu .add_command(label="About", command=About)
 HelpMenu.add_separator()
@@ -450,8 +469,12 @@ for b in [SayBTN]:
     b.bind("<Button-1>", speak)
     b.bind("<space>", speak)
 
-
 FetchBatteryChargingStatus()
+
+# Keyboard Shortcuts
 window.bind("<Control-l>", LightMode)
 window.bind("<Control-d>", DarkMode)
+window.bind("<Control-r>", updatebatterylevel)
+window.bind("<Control-c>", speakChargingStatus)
+window.bind("<F1>", OnlineHelp)
 window.mainloop()
