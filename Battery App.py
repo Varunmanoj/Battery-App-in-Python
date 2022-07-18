@@ -8,10 +8,13 @@ import platform
 import os
 import time
 
+
 # GUI Design
 # Define the Window
 window = tk.Tk()
 engine = pyttsx3.init()
+
+
 # install extra voices on Windows
 
 
@@ -477,4 +480,6 @@ window.bind("<Control-d>", DarkMode)
 window.bind("<Control-r>", updatebatterylevel)
 window.bind("<Control-c>", speakChargingStatus)
 window.bind("<F1>", OnlineHelp)
+
+
 window.mainloop()

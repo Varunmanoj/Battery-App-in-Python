@@ -1,1 +1,1 @@
-InstallCortanaVoice
+pyi_splash
