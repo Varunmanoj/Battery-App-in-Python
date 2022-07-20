@@ -383,14 +383,14 @@ window.config(menu=menubar)
 
 # Menu Items
 filemenu = tk.Menu(menubar, tearoff=0,
-                   activebackground="#A0D995", activeforeground="black", font="Arial 10 bold")
+                   activebackground="#A0D995", activeforeground="black", font="Arial 20 bold")
 menubar.add_cascade(label="File", menu=filemenu)
 filemenu.add_command(
     label="Refresh", command=updatebatterylevelMenu, accelerator="CTRL+R")
 filemenu.add_command(label="Exit", command=window.quit, accelerator='ALT+F4')
 
 # Menu Items
-ViewMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995", activeforeground="black", font="Arial 10 bold",
+ViewMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995", activeforeground="black", font="Arial 20 bold",
                    )
 menubar.add_cascade(label="View", menu=ViewMenu)
 ViewMenu.add_command(label="Light Mode",
@@ -401,7 +401,7 @@ ViewMenu.add_command(
 
 # Create Submenu
 submenu = tk.Menu(ViewMenu, tearoff=0, activebackground="#A0D995",
-                  activeforeground="black", font="Arial 10 bold")
+                  activeforeground="black", font="Arial 20 bold")
 submenu.add_command(label="Small Font", command=smallsize)
 submenu.add_command(label="Default Font", command=DefaultSize)
 submenu.add_command(label="Large Font", command=LargeSize)
@@ -410,7 +410,7 @@ ViewMenu.add_cascade(label="Change Font Size", menu=submenu)
 
 # Speak Menu
 SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
-                    activeforeground="black", font="Arial 10 bold")
+                    activeforeground="black", font="Arial 20 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu)
 SpeakMenu .add_command(label="Battery Level",
                        command=speakMenuitem, accelerator="CTRL+S")
@@ -420,7 +420,7 @@ SpeakMenu.add_separator()
 
 # Install VoicesMenu
 VoicesMenu = tk.Menu(SpeakMenu, tearoff=0, activebackground="#A0D995",
-                     activeforeground="black", font="Arial 10 bold")
+                     activeforeground="black", font="Arial 20 bold")
 VoicesMenu .add_command(label="Catherin", command=InstallCatherinVoice)
 VoicesMenu .add_command(label="George", command=InstallGeorgeVoice)
 VoicesMenu .add_command(label="Hazel", command=InstallHazelVoice)
@@ -438,7 +438,7 @@ VoicesMenu .add_command(label="Susan", command=InstallSusanVoice)
 SpeakMenu.add_cascade(label="Install More Voices", menu=VoicesMenu)
 # Help Menu
 HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
-                   activeforeground="black", font="Arial 10 bold")
+                   activeforeground="black", font="Arial 20 bold")
 menubar.add_cascade(label="Help", menu=HelpMenu)
 HelpMenu .add_command(label="Online Help",
                       command=OnlineHelpMenu, accelerator="F1")
