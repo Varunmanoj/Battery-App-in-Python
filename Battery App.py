@@ -233,12 +233,14 @@ def fetchbatterypercent():
 
 def updatebatterylevel(event):
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
+    FetchBatteryChargingStatus()
     engine.say("Screen Refreshed")
     engine.runAndWait()
 
 
 def updatebatterylevelMenu():
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
+    FetchBatteryChargingStatus()
     engine.say("Screen Refreshed")
     engine.runAndWait()
 
@@ -445,7 +447,7 @@ HelpMenu .add_command(label="Online Help",
 HelpMenu.add_separator()
 HelpMenu .add_command(label="About", command=About)
 HelpMenu.add_separator()
-HelpMenu .add_command(label="Android App", command=Androidapp)
+HelpMenu .add_command(label="Get Android App", command=Androidapp)
 
 TitleText = tk.Message(text="Battery % Viewer",
                        font="Arial 30 bold", justify="center", aspect="500")
@@ -462,6 +464,23 @@ fetchbatterypercent()
 SayBTN = tk.Button(text="Say", command=speak,
                    font="Arial 20 bold", activebackground="green", bg="#A0D995", bd="5",)
 SayBTN.pack(fill="x")
+
+
+# Right Click Menu
+rightclickmenu = tk.Menu(window, title="right Click Menu", tearoff=0, activebackground="#A0D995",
+                         activeforeground="black", font="Arial 15 bold")
+rightclickmenu.add_command(label="Speak Battery Level",
+                           command=speakMenuitem, accelerator="CTRL+S")
+rightclickmenu.add_command(label="Speak Charging Status",
+                           command=speakChargingStatusMenu, accelerator="CTRL+C")
+rightclickmenu.add_separator()
+rightclickmenu.add_command(label="Refresh",
+                           command=updatebatterylevelMenu, accelerator="CTRL+R")
+
+
+def popMenuonrightclick(event):
+    rightclickmenu.tk_popup(event.x_root, event.y_root)
+
 
 # Key bind
 SayBTN.focus()
@@ -480,6 +499,7 @@ window.bind("<Control-d>", DarkMode)
 window.bind("<Control-r>", updatebatterylevel)
 window.bind("<Control-c>", speakChargingStatus)
 window.bind("<F1>", OnlineHelp)
+window.bind("<Button-3>", popMenuonrightclick)
 
 
 window.mainloop()
