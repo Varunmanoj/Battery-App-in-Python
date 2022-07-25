@@ -386,68 +386,75 @@ window.config(menu=menubar)
 # Menu Items
 filemenu = tk.Menu(menubar, tearoff=0,
                    activebackground="#A0D995", activeforeground="black", font="Arial 20 bold")
-menubar.add_cascade(label="File", menu=filemenu)
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
 filemenu.add_command(
-    label="Refresh", command=updatebatterylevelMenu, accelerator="CTRL+R")
-filemenu.add_command(label="Exit", command=window.quit, accelerator='ALT+F4')
+    label="Refresh", command=updatebatterylevelMenu, accelerator="CTRL+R", underline=0)
+filemenu.add_command(label="Exit", command=window.quit,
+                     accelerator='ALT+F4', underline=0)
 
 # Menu Items
 ViewMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995", activeforeground="black", font="Arial 20 bold",
                    )
-menubar.add_cascade(label="View", menu=ViewMenu)
+menubar.add_cascade(label="View", menu=ViewMenu, underline=0)
 ViewMenu.add_command(label="Light Mode",
-                     command=LightModeMenu, accelerator="CTRL+L")
+                     command=LightModeMenu, accelerator="CTRL+L", underline=0)
 ViewMenu.add_command(
-    label="Dark Mode", command=DarkModeMenu, accelerator="CTRL+D")
+    label="Dark Mode", command=DarkModeMenu, accelerator="CTRL+D", underline=0)
 
 
 # Create Submenu
 submenu = tk.Menu(ViewMenu, tearoff=0, activebackground="#A0D995",
                   activeforeground="black", font="Arial 20 bold")
-submenu.add_command(label="Small Font", command=smallsize)
-submenu.add_command(label="Default Font", command=DefaultSize)
-submenu.add_command(label="Large Font", command=LargeSize)
-ViewMenu.add_cascade(label="Change Font Size", menu=submenu)
+submenu.add_command(label="Small Font", command=smallsize, underlin=0)
+submenu.add_command(label="Default Font", command=DefaultSize, underline=0)
+submenu.add_command(label="Large Font", command=LargeSize, underline=0)
+ViewMenu.add_cascade(label="Change Font Size", menu=submenu, underline=0)
 
 
 # Speak Menu
 SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
                     activeforeground="black", font="Arial 20 bold")
-menubar.add_cascade(label="Speak", menu=SpeakMenu)
-SpeakMenu .add_command(label="Battery Level",
+menubar.add_cascade(label="Speak", menu=SpeakMenu, underline=0)
+SpeakMenu .add_command(label="Battery Level", underline=0,
                        command=speakMenuitem, accelerator="CTRL+S")
 SpeakMenu.add_command(label="Charging Indication",
-                      command=speakChargingStatusMenu, accelerator="CTRL+C")
+                      command=speakChargingStatusMenu, accelerator="CTRL+C", underline=0)
 SpeakMenu.add_separator()
 
 # Install VoicesMenu
 VoicesMenu = tk.Menu(SpeakMenu, tearoff=0, activebackground="#A0D995",
                      activeforeground="black", font="Arial 20 bold")
-VoicesMenu .add_command(label="Catherin", command=InstallCatherinVoice)
-VoicesMenu .add_command(label="George", command=InstallGeorgeVoice)
-VoicesMenu .add_command(label="Hazel", command=InstallHazelVoice)
-VoicesMenu .add_command(label="Hemant", command=InstallHemantVoice)
-VoicesMenu .add_command(label="James", command=InstallJamesVoice)
-VoicesMenu .add_command(label="Kalpana", command=InstallKalpanaVoice)
-VoicesMenu .add_command(label="Linda", command=InstallLindaVoice)
-VoicesMenu .add_command(label="Mark", command=InstallMarkVoice)
-VoicesMenu .add_command(label="Ravi", command=InstallRaviVoice)
-VoicesMenu .add_command(label="Ritchard", command=InstallRitchardVoice)
-VoicesMenu .add_command(label="Sean", command=InstallSeanVoice)
-VoicesMenu .add_command(label="Susan", command=InstallSusanVoice)
+VoicesMenu .add_command(
+    label="Catherin", command=InstallCatherinVoice, underline=0)
+VoicesMenu .add_command(
+    label="George", command=InstallGeorgeVoice, underline=0)
+VoicesMenu .add_command(label="Hazel", command=InstallHazelVoice, underline=0)
+VoicesMenu .add_command(
+    label="Hemant", command=InstallHemantVoice, underline=1)
+VoicesMenu .add_command(label="James", command=InstallJamesVoice, underline=0)
+VoicesMenu .add_command(
+    label="Kalpana", command=InstallKalpanaVoice, underline=0)
+VoicesMenu .add_command(label="Linda", command=InstallLindaVoice, underline=0)
+VoicesMenu .add_command(label="Mark", command=InstallMarkVoice, underline=0)
+VoicesMenu .add_command(label="Ravi", command=InstallRaviVoice, underline=0)
+VoicesMenu .add_command(
+    label="Ritchard", command=InstallRitchardVoice, underline=1)
+VoicesMenu .add_command(label="Sean", command=InstallSeanVoice, underline=0)
+VoicesMenu .add_command(label="Susan", command=InstallSusanVoice, underline=1)
 
 
-SpeakMenu.add_cascade(label="Install More Voices", menu=VoicesMenu)
+SpeakMenu.add_cascade(label="Install More Voices",
+                      menu=VoicesMenu, underline=0)
 # Help Menu
 HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
                    activeforeground="black", font="Arial 20 bold")
-menubar.add_cascade(label="Help", menu=HelpMenu)
-HelpMenu .add_command(label="Online Help",
+menubar.add_cascade(label="Help", menu=HelpMenu, underline=0)
+HelpMenu .add_command(label="Online Help", underline=0,
                       command=OnlineHelpMenu, accelerator="F1")
 HelpMenu.add_separator()
-HelpMenu .add_command(label="About", command=About)
+HelpMenu .add_command(label="About", command=About, underline=0)
 HelpMenu.add_separator()
-HelpMenu .add_command(label="Get Android App", command=Androidapp)
+HelpMenu .add_command(label="Get Android App", command=Androidapp, underline=0)
 
 TitleText = tk.Message(text="Battery % Viewer",
                        font="Arial 30 bold", justify="center", aspect="500")
@@ -470,12 +477,12 @@ SayBTN.pack(fill="x")
 rightclickmenu = tk.Menu(window, title="right Click Menu", tearoff=0, activebackground="#A0D995",
                          activeforeground="black", font="Arial 15 bold")
 rightclickmenu.add_command(label="Speak Battery Level",
-                           command=speakMenuitem, accelerator="CTRL+S")
+                           command=speakMenuitem, accelerator="CTRL+S", underline=6)
 rightclickmenu.add_command(label="Speak Charging Status",
-                           command=speakChargingStatusMenu, accelerator="CTRL+C")
+                           command=speakChargingStatusMenu, accelerator="CTRL+C", underline=6)
 rightclickmenu.add_separator()
 rightclickmenu.add_command(label="Refresh",
-                           command=updatebatterylevelMenu, accelerator="CTRL+R")
+                           command=updatebatterylevelMenu, accelerator="CTRL+R", underline=0)
 
 
 def popMenuonrightclick(event):
