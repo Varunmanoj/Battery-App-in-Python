@@ -228,19 +228,17 @@ def fetchbatterypercent():
 
     global BatteryLevelText
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
-    window.after(60000, fetchbatterypercent)
+    window.after(10000, fetchbatterypercent)
 
 
 def updatebatterylevel(event):
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
-    FetchBatteryChargingStatus()
     engine.say("Screen Refreshed")
     engine.runAndWait()
 
 
 def updatebatterylevelMenu():
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
-    FetchBatteryChargingStatus()
     engine.say("Screen Refreshed")
     engine.runAndWait()
 
