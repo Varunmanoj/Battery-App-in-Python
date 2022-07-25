@@ -372,7 +372,7 @@ def LargeSize():
 window.title("Battery % Viewer")
 # Set Size of the Window
 window.geometry("500x400")
-window.minsize(450, 100)
+window.minsize(400, 300)
 # Set the Icon for the Window and the App
 window.iconbitmap("App Icon.ico")
 
