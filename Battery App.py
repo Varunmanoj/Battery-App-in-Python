@@ -60,6 +60,9 @@ def InstallGeorgeVoice():
                 pass
         except:
             print("Program not Installed")
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
 
 
 def InstallHazelVoice():
@@ -77,6 +80,10 @@ def InstallHazelVoice():
         except:
             print("Program not Installed")
 
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
+
 
 def InstallHemantVoice():
     fetchosname = findos()
@@ -93,6 +100,10 @@ def InstallHemantVoice():
         except:
             print("Program not Installed")
 
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
+
 
 def InstallJamesVoice():
     fetchosname = findos()
@@ -108,6 +119,10 @@ def InstallJamesVoice():
                 pass
         except:
             print("Program not Installed")
+
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
 
 
 def InstallKalpanaVoice():
@@ -126,6 +141,10 @@ def InstallKalpanaVoice():
         except:
             print("Program not Installed")
 
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
+
 
 def InstallLindaVoice():
     fetchosname = findos()
@@ -142,6 +161,10 @@ def InstallLindaVoice():
         except:
             print("Program not Installed")
 
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
+
 
 def InstallMarkVoice():
     fetchosname = findos()
@@ -157,6 +180,9 @@ def InstallMarkVoice():
                 pass
         except:
             print("Program not Installed")
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
 
 
 def InstallRaviVoice():
@@ -170,6 +196,10 @@ def InstallRaviVoice():
 
         except:
             print("Program not Installed")
+
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
 
 
 def InstallRitchardVoice():
@@ -187,6 +217,10 @@ def InstallRitchardVoice():
         except:
             print("Program not Installed")
 
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
+
 
 def InstallSeanVoice():
     fetchosname = findos()
@@ -203,6 +237,10 @@ def InstallSeanVoice():
         except:
             print("Program not Installed")
 
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
+
 
 def InstallSusanVoice():
     fetchosname = findos()
@@ -218,6 +256,10 @@ def InstallSusanVoice():
                 pass
         except:
             print("Program not Installed")
+
+    else:
+        messagebox.showinfo("Works on Windows Only",
+                            "The extra voices can be installed on Windows only.")
 
 
 def fetchbatterypercent():
