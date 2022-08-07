@@ -1,4 +1,4 @@
-# Battery-App-in-Python
+# # % Viewer - Low vision
 People with visual impairments (VI Community) usually find it difficult to read the Task bar information on the windows Computer. The Taskbar shows vital information with the most important being the time and battery percentage. There are very few options when it comes to viewing the battery percentage of the computer. This makes it hard for people from the VI community to know the computer’s battery percentage whenever they desire.
 
 The battery is the most important element in any Computer, and it is usually important to monitor how much charge is left on your computer at any point in time. For example, if you have 20 percent of battery left and you are still a few hours away from home or any power source, you may want to save the battery and keep your computer alive till you can charge it next.
