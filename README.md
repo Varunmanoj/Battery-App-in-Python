@@ -24,6 +24,7 @@ The application supports various keyboard shortcuts. The Complete List can be fo
 
 ## Website
 For More Info Please wisit the Battery % Viewer Website
-[attery % Viewer Low Vision](https://sites.google.com/view/batteryviewer-low-vision/home)
+[Battery % Viewer Low Vision](https://sites.google.com/view/batteryviewer-low-vision/home)
+
 ## Download 
 The app can be downloaded from the Releases section in from Github or on the Download Link provided on the Website.
