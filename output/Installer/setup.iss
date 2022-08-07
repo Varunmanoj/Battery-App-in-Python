@@ -5,12 +5,12 @@
 #define MyAppVersion "6"
 #define MyAppPublisher "Varun Manoj Kumar"
 #define MyAppURL "https://sites.google.com/view/batteryviewer-low-vision/home"
-#define MyAppExeName "Battery % Viewer.exe"
+#define MyAppExeName "MyProg.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{B4EB6101-F471-4B52-9C14-2737F975E68C}
+AppId={{F952EF89-C874-4F97-889B-C07999F1F511}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -24,7 +24,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\varun\Desktop
 OutputBaseFilename=Battery % Viewer Setup
-SetupIconFile=C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\output\Battery % Viewer\App Icon.ico
+SetupIconFile=C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery % Viewer\windows App Files\output\Battery % Viewer\App Icon.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -36,8 +36,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\output\Battery % Viewer\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery App in Python\output\Battery % Viewer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Program Files (x86)\Inno Setup 6\Examples\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
