@@ -391,6 +391,11 @@ def About():
     messagebox.showinfo("About", "Battery % Viewer \n Version 6")
 
 
+def KeyboardShortcutsPage():
+    webbrowser.open(
+        "https://sites.google.com/view/batteryviewer-low-vision/windows-app/keyboard-shortcuts")
+
+
 def Androidapp():
     webbrowser.open(
         "https://play.google.com/store/apps/details?id=com.varunmanojkumar.batterylevel")
@@ -491,6 +496,8 @@ HelpMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
 menubar.add_cascade(label="Help", menu=HelpMenu, underline=0)
 HelpMenu .add_command(label="Online Help", underline=0,
                       command=OnlineHelpMenu, accelerator="F1")
+HelpMenu.add_command(label="Keyboard Shortcuts",
+                     command=KeyboardShortcutsPage, underline=0)
 HelpMenu.add_separator()
 HelpMenu .add_command(label="About", command=About, underline=0)
 HelpMenu.add_separator()
