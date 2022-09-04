@@ -379,21 +379,26 @@ def DarkModeMenu():
 
 def OnlineHelpMenu():
     webbrowser.open(
-        "https://www.batteryviewer.com/")
+        "https://www.batteryviewer.com/windows-app")
 
 
 def OnlineHelp(event):
     webbrowser.open(
-        "https://www.batteryviewer.com/")
+        "https://www.batteryviewer.com/windows-app")
+
+
+def contactus():
+    webbrowser.open(
+        "https://www.batteryviewer.com/contact-us")
 
 
 def About():
-    messagebox.showinfo("About", "Battery % Viewer \n Version 6")
+    messagebox.showinfo("About", "Battery % Viewer \n Version 7")
 
 
 def KeyboardShortcutsPage():
     webbrowser.open(
-        "https://sites.google.com/view/batteryviewer-low-vision/windows-app/keyboard-shortcuts")
+        "https://www.batteryviewer.com/windows-app/keyboard-shortcuts")
 
 
 def Androidapp():
@@ -498,6 +503,7 @@ HelpMenu .add_command(label="Online Help", underline=0,
                       command=OnlineHelpMenu, accelerator="F1")
 HelpMenu.add_command(label="Keyboard Shortcuts",
                      command=KeyboardShortcutsPage, underline=0)
+HelpMenu.add_command(label="Contact US", command=contactus, underlin=0)
 HelpMenu.add_separator()
 HelpMenu .add_command(label="About", command=About, underline=0)
 HelpMenu.add_separator()

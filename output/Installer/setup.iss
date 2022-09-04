@@ -2,15 +2,15 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Battery Viewer"
-#define MyAppVersion "6"
+#define MyAppVersion "7"
 #define MyAppPublisher "Varun Manoj Kumar"
-#define MyAppURL "https://sites.google.com/view/batteryviewer-low-vision/home"
+#define MyAppURL "https://www.batteryviewer.com/home"
 #define MyAppExeName "Battery % Viewer.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{F7469DC9-25AD-455C-9158-4C91E1625664}
+AppId={{22F70CEF-766B-47F2-BD8A-3A35C7DB409B}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
