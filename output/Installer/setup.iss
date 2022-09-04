@@ -5,12 +5,12 @@
 #define MyAppVersion "6"
 #define MyAppPublisher "Varun Manoj Kumar"
 #define MyAppURL "https://sites.google.com/view/batteryviewer-low-vision/home"
-#define MyAppExeName "MyProg.exe"
+#define MyAppExeName "Battery % Viewer.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{F952EF89-C874-4F97-889B-C07999F1F511}
+AppId={{F7469DC9-25AD-455C-9158-4C91E1625664}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -36,7 +36,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Program Files (x86)\Inno Setup 6\Examples\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery % Viewer\windows App Files\output\Battery % Viewer\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\varun\OneDrive\Online Back up\Sofware installers\Battery % Viewer\windows App Files\output\Battery % Viewer\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

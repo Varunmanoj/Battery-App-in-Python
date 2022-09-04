@@ -379,12 +379,12 @@ def DarkModeMenu():
 
 def OnlineHelpMenu():
     webbrowser.open(
-        "https://sites.google.com/view/batteryviewer-low-vision/home")
+        "https://www.batteryviewer.com/")
 
 
 def OnlineHelp(event):
     webbrowser.open(
-        "https://sites.google.com/view/batteryviewer-low-vision/home")
+        "https://www.batteryviewer.com/")
 
 
 def About():
