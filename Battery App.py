@@ -555,9 +555,17 @@ FetchBatteryChargingStatus()
 
 # Keyboard Shortcuts
 window.bind("<Control-l>", LightMode)
+window.bind("<Control-L>", LightMode)
+
 window.bind("<Control-d>", DarkMode)
+window.bind("<Control-D>", DarkMode)
+
 window.bind("<Control-r>", updatebatterylevel)
+window.bind("<Control-R>", updatebatterylevel)
+
 window.bind("<Control-c>", speakChargingStatus)
+window.bind("<Control-C>", speakChargingStatus)
+
 window.bind("<F1>", OnlineHelp)
 window.bind("<Button-3>", popMenuonrightclick)
 
