@@ -1,0 +1,16 @@
+General Options
+Refresh window: CTRL+R (Refresh)
+Exit Program: ALT+F4
+
+Visual Options
+Switch to Light Mode: CTRL+L (Light)
+Switch to Dark Mode:CTRL+D(Dark)
+
+Change Font Size
+Small Font: ALT+V (View Menu) --> C (Change Font Size) --> S (Small Font)
+Default Font: ALT+V (View Menu) --> C (Change Font Size) --> D (Default Font)
+Large Font: ALT+V (View Menu) --> C (Change Font Size) --> L(Large Font)
+
+Announce Function
+Announce Battery Level: CTRL+S Or (Enter or Space Bar when Focused on the Button)
+Announce Charging info: CTRL+C  (Charging)

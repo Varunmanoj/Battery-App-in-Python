@@ -565,6 +565,7 @@ window.bind("<Control-R>", updatebatterylevel)
 
 window.bind("<Control-c>", speakChargingStatus)
 window.bind("<Control-C>", speakChargingStatus)
+window.bind("<Control-S>", speak)
 
 window.bind("<F1>", OnlineHelp)
 window.bind("<Button-3>", popMenuonrightclick)
