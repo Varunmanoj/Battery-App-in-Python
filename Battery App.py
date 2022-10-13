@@ -393,7 +393,7 @@ def contactus():
 
 
 def About():
-    messagebox.showinfo("About", "Battery % Viewer \n Version 7")
+    messagebox.showinfo("About", "Battery % Viewer \n Version 8")
 
 
 def KeyboardShortcutsPage():
