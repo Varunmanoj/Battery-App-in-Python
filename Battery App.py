@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
 import psutil as ps
-# from win32com.client import Dispatch
 import pyttsx3
 import webbrowser
 import platform
@@ -428,6 +427,7 @@ window.minsize(400, 300)
 # Set the Icon for the Window and the App
 window.iconbitmap("App Icon.ico")
 
+
 # Add Widgets
 # Add Menu
 menubar = tk.Menu(window)
@@ -565,7 +565,7 @@ window.bind("<Control-R>", updatebatterylevel)
 
 window.bind("<Control-c>", speakChargingStatus)
 window.bind("<Control-C>", speakChargingStatus)
-cwindow.bind("<Control-S>", speak)
+window.bind("<Control-S>", speak)
 
 window.bind("<F1>", OnlineHelp)
 window.bind("<Button-3>", popMenuonrightclick)
