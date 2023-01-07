@@ -265,7 +265,8 @@ def fetchbatterypercent():
     global percent
     global Battery
     Battery = ps.sensors_battery()
-    percent = Battery.percent
+    if Battery:
+        percent = Battery.percent
 
     global BatteryLevelText
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
@@ -286,7 +287,8 @@ def updatebatterylevelMenu():
 
 def FetchBatteryChargingStatus():
     Battery = ps.sensors_battery()
-    plugedinbool = Battery.power_plugged
+    if Battery:
+        plugedinbool = Battery.power_plugged
 
     global chargeStatusText
     if plugedinbool:
