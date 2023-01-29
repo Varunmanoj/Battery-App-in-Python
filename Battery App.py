@@ -1,20 +1,19 @@
 import tkinter as tk
 from tkinter import messagebox
-import psutil as ps
-import pyttsx3
+try:
+    import psutil as ps
+    import pyttsx3
+except Exception as e:
+    print(str(e))
 import webbrowser
 import platform
 import os
 import time
-
+import subprocess
 
 # GUI Design
 # Define the Window
 window = tk.Tk()
-engine = pyttsx3.init()
-
-
-# install extra voices on Windows
 
 
 def restartsystem():
@@ -24,6 +23,13 @@ def restartsystem():
 def findos():
     OSName = platform.system()
     return OSName
+
+
+fetchosname = findos()
+if fetchosname == 'Windows':
+    engine = pyttsx3.init()
+
+# install extra voices on Windows
 
 
 def InstallCatherinVoice():
@@ -275,14 +281,34 @@ def fetchbatterypercent():
 
 def updatebatterylevel(event):
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
-    engine.say("Screen Refreshed")
-    engine.runAndWait()
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            engine.say("Screen Refreshed!")
+            engine.runAndWait()
+        except Exception as e:
+            print(str(e))
+    elif fetchosname == 'Darwin':
+        try:
+            subprocess.call(["say", "Screen Refreshed!"])
+        except Exception as e:
+            print(str(e))
 
 
 def updatebatterylevelMenu():
     BatteryLevelText['text'] = 'Battery Level '+str(percent)+' %'
-    engine.say("Screen Refreshed")
-    engine.runAndWait()
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            engine.say("Screen Refreshed!")
+            engine.runAndWait()
+        except Exception as e:
+            print(str(e))
+    elif fetchosname == 'Darwin':
+        try:
+            subprocess.call(["say", "Screen Refreshed!"])
+        except Exception as e:
+            print(str(e))
 
 
 def FetchBatteryChargingStatus():
@@ -304,26 +330,63 @@ FetchBatteryChargingStatus()
 
 
 def speakMenuitem():
-    engine.say("battery Level"+str(percent)+"%")
-    engine.runAndWait()
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            engine.say("battery Level"+str(percent)+"%")
+            engine.runAndWait()
+        except Exception as e:
+            print(str(e))
+    elif fetchosname == 'Darwin':
+        try:
+            subprocess.call(["say", f"battery Level"+str(percent)+"%"])
+        except Exception as e:
+            print(str(e))
 
 
 def speak(event):
-    # speak = Dispatch("SAPI.SpVoice")
-    # speak.Speak("Battery Level"+str(percent)+"%")
-
-    engine.say("battery Level"+str(percent)+"%")
-    engine.runAndWait()
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            engine.say("battery Level"+str(percent)+"%")
+            engine.runAndWait()
+        except Exception as e:
+            print(str(e))
+    elif fetchosname == 'Darwin':
+        try:
+            subprocess.call(["say", f"battery Level"+str(percent)+"%"])
+        except Exception as e:
+            print(str(e))
 
 
 def speakChargingStatus(event):
-    engine.say(chargeStatusText)
-    engine.runAndWait()
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            engine.say(chargeStatusText)
+            engine.runAndWait()
+        except Exception as e:
+            print(str(e))
+    elif fetchosname == 'Darwin':
+        try:
+            subprocess.call(["say", f"{chargeStatusText}"])
+        except Exception as e:
+            print(str(e))
 
 
 def speakChargingStatusMenu():
-    engine.say(chargeStatusText)
-    engine.runAndWait()
+    fetchosname = findos()
+    if fetchosname == 'Windows':
+        try:
+            engine.say(chargeStatusText)
+            engine.runAndWait()
+        except Exception as e:
+            print(str(e))
+    elif fetchosname == 'Darwin':
+        try:
+            subprocess.call(["say", f"{chargeStatusText}"])
+        except Exception as e:
+            print(str(e))
 
 
 def LightMode(event):
@@ -440,18 +503,23 @@ filemenu = tk.Menu(menubar, tearoff=0,
                    activebackground="#A0D995", activeforeground="black", font="Arial 20 bold")
 menubar.add_cascade(label="File", menu=filemenu, underline=0)
 filemenu.add_command(
-    label="Refresh", command=updatebatterylevelMenu, accelerator="CTRL+R", underline=0)
-filemenu.add_command(label="Exit", command=window.quit,
-                     accelerator='ALT+F4', underline=0)
+    label="Refresh", command=updatebatterylevelMenu, accelerator="Command+R", underline=0)
 
+fetchosname = findos()
+if fetchosname == 'Windows':
+
+    filemenu.add_command(label="Exit", command=window.quit,
+                         accelerator='ALT+F4', underline=0)
+elif fetchosname == 'Darwin':
+    filemenu.add_command(label="Exit", command=window.quit)
 # Menu Items
 ViewMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995", activeforeground="black", font="Arial 20 bold",
                    )
 menubar.add_cascade(label="View", menu=ViewMenu, underline=0)
 ViewMenu.add_command(label="Light Mode",
-                     command=LightModeMenu, accelerator="CTRL+L", underline=0)
+                     command=LightModeMenu, accelerator="Command+L", underline=0)
 ViewMenu.add_command(
-    label="Dark Mode", command=DarkModeMenu, accelerator="CTRL+D", underline=0)
+    label="Dark Mode", command=DarkModeMenu, accelerator="Command+D", underline=0)
 
 
 # Create Submenu
@@ -468,9 +536,9 @@ SpeakMenu = tk.Menu(menubar, tearoff=0, activebackground="#A0D995",
                     activeforeground="black", font="Arial 20 bold")
 menubar.add_cascade(label="Speak", menu=SpeakMenu, underline=0)
 SpeakMenu .add_command(label="Battery Level", underline=0,
-                       command=speakMenuitem, accelerator="CTRL+S")
+                       command=speakMenuitem, accelerator="Command+S")
 SpeakMenu.add_command(label="Charging Indication",
-                      command=speakChargingStatusMenu, accelerator="CTRL+C", underline=0)
+                      command=speakChargingStatusMenu, accelerator="Command+C", underline=0)
 SpeakMenu.add_separator()
 
 # Install VoicesMenu
@@ -544,33 +612,56 @@ def popMenuonrightclick(event):
     rightclickmenu.tk_popup(event.x_root, event.y_root)
 
 
-# Key bind
-SayBTN.focus()
-for b in [SayBTN]:
-    b.unbind_class("Button", "<Key-space>")
-    b.bind("<Return>", speak)
-    b.bind("<Control-s>", speak)
-    b.bind("<Button-1>", speak)
-    b.bind("<space>", speak)
-
 FetchBatteryChargingStatus()
+# Keyboard Shortcut
+if fetchosname == 'Windows':
+    SayBTN.focus()
+    for b in [SayBTN]:
+        b.unbind_class("Button", "<Key-space>")
+        b.bind("<Return>", speak)
+        b.bind("<Control-s>", speak)
+        b.bind("<Button-1>", speak)
+        b.bind("<space>", speak)
 
-# Keyboard Shortcuts
-window.bind("<Control-l>", LightMode)
-window.bind("<Control-L>", LightMode)
+    window.bind("<Control-l>", LightMode)
+    window.bind("<Control-L>", LightMode)
 
-window.bind("<Control-d>", DarkMode)
-window.bind("<Control-D>", DarkMode)
+    window.bind("<Control-d>", DarkMode)
+    window.bind("<Control-D>", DarkMode)
 
-window.bind("<Control-r>", updatebatterylevel)
-window.bind("<Control-R>", updatebatterylevel)
+    window.bind("<Control-r>", updatebatterylevel)
+    window.bind("<Control-R>", updatebatterylevel)
 
-window.bind("<Control-c>", speakChargingStatus)
-window.bind("<Control-C>", speakChargingStatus)
-window.bind("<Control-S>", speak)
+    window.bind("<Control-c>", speakChargingStatus)
+    window.bind("<Control-C>", speakChargingStatus)
+    window.bind("<Control-S>", speak)
 
-window.bind("<F1>", OnlineHelp)
-window.bind("<Button-3>", popMenuonrightclick)
+    window.bind("<F1>", OnlineHelp)
+    window.bind("<Button-3>", popMenuonrightclick)
 
+elif fetchosname == 'Darwin':
+    SayBTN.focus()
+    for b in [SayBTN]:
+        b.unbind_class("Button", "<Key-space>")
+        b.bind("<Return>", speak)
+        b.bind("<Command-s>", speak)
+        b.bind("<Button-1>", speak)
+        b.bind("<space>", speak)
+
+    window.bind("<Command-l>", LightMode)
+    window.bind("<Command-L>", LightMode)
+
+    window.bind("<Command-d>", DarkMode)
+    window.bind("<Command-D>", DarkMode)
+
+    window.bind("<Command-r>", updatebatterylevel)
+    window.bind("<Command-R>", updatebatterylevel)
+
+    window.bind("<Command-c>", speakChargingStatus)
+    window.bind("<Command-C>", speakChargingStatus)
+    window.bind("<Command-S>", speak)
+
+    window.bind("<F1>", OnlineHelp)
+    window.bind("<Button-3>", popMenuonrightclick)
 
 window.mainloop()
